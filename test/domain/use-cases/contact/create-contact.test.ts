@@ -60,7 +60,6 @@ describe('CreateContactUseCase', () => {
       .spyOn(mockContactRepository,'createContact')
       .mockImplementation(()=>Promise.resolve({data:[contact]}))
 
-
        const res = await createContact.execute(contact)
 
        expect(mockContactRepository.createContact)

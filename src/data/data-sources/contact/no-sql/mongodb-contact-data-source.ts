@@ -1,6 +1,5 @@
 import { Contact } from "../../../../domain/entities/Contact";
 import { ContactResult } from "../../../../domain/entities/ContactResult";
-import { ContactResponseModel } from "../../../../domain/models";
 import { ContactDataSource } from "../../../interfaces/data-sources/contact/contact-data-source";
 
 export class MongodbContactDataSource implements ContactDataSource{
