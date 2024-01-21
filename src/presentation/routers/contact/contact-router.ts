@@ -6,11 +6,11 @@ export default function ContactsRouter(createContactUseCase:CreateContactUseCase
   const router = express.Router()
 
 
-  router.get('/',async(req:Request,res:Response)=>{
+  router.post('/',async(req:Request,res:Response)=>{
        
      try{
 
-        const contact = 
+        const contact = await createContactUseCase.execute(req.body)
 
      }catch(err){
 
