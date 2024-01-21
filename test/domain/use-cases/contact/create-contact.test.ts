@@ -1,6 +1,7 @@
 import { Contact } from "../../../../src/domain/entities/Contact";
 import { ContactRepository } from '../../../../src/domain/interfaces/repositories/contacts/contact-repository';
 import { CreateContactUseCase } from "../../../../src/domain/interfaces/use-cases/contact/crate-contact-use-case";
+import { ContactResponseModel } from "../../../../src/domain/models";
 import { CreateContact } from '../../../../src/domain/use-cases/create-contact';
 
 
@@ -11,6 +12,15 @@ describe('CreateContactUseCase', () => {
 
   
   class MockContactRepository implements ContactRepository{
+    getContact(id: string): Promise<ContactResponseModel> {
+      throw new Error("Method not implemented.");
+    }
+    updateContact(id: string, data: Partial<Contact>): Promise<boolean> {
+      throw new Error("Method not implemented.");
+    }
+    deleteContact(id: string): Promise<boolean> {
+      throw new Error("Method not implemented.");
+    }
     createContact(contact: Contact): Promise<boolean> {
       throw new Error("Method not implemented.");
     }
