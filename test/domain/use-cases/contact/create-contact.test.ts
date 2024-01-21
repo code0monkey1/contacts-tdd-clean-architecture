@@ -72,7 +72,7 @@ describe('CreateContactUseCase', () => {
          
       jest
       .spyOn(mockContactRepository,'createContact')
-      .mockImplementation(()=>Promise.reject(false))
+      .mockImplementation(()=>Promise.reject(Error()))
 
 
        const res = await createContact.execute(contact)
@@ -81,7 +81,7 @@ describe('CreateContactUseCase', () => {
        .toHaveBeenCalledWith(contact)
 
        expect(res)
-       .toBe(false)
+       .toBe(Error)
       
 
     })
