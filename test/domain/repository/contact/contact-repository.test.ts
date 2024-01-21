@@ -39,7 +39,7 @@ describe('Contact Repository', () => {
   })
 
 
-  describe('getAllContacts', () => {
+  describe('createContact', () => {
 
     const contact:Contact={
       email: "mail@email.com",
@@ -48,13 +48,13 @@ describe('Contact Repository', () => {
     }
    
 
-    it('gets the contacts array',async()=>{
+    it('creates new contact',async()=>{
 
       const response:ContactResult={
         data:[contact]
       }
        
-      jest.spyOn(mockContactDataSource,'getAll').mockImplementation(()=>Promise.resolve(response))
+      jest.spyOn(mockContactDataSource,'create').mockImplementation(()=>Promise.resolve(response))
       
       const res = await contactRepository.getContacts()
 
