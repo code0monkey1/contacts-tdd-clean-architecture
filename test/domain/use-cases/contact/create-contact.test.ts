@@ -37,12 +37,11 @@ describe('CreateContactUseCase', () => {
      createContact= new CreateContact( mockContactRepository)
   })
 
-
  
   //success
   describe('Contact ', () => {
 
-    const contact={
+    const contact:Contact={
         firstName:'a',
         surName:'b',
         email:"email@gmail.com"
