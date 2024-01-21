@@ -4,44 +4,40 @@ import { ContactRepository } from '../../../../src/domain/interfaces/repositorie
 import { CreateContactUseCase } from "../../../../src/domain/interfaces/use-cases/contact/crate-contact-use-case";
 import { CreateContact } from '../../../../src/domain/use-cases/create-contact';
 
+class MockContactRepository implements ContactRepository{
+  createContact(contact: Contact): Promise<ContactResult> {
+    throw new Error("Method not implemented.");
+  }
+  getContact(id: string): Promise<ContactResult> {
+    throw new Error("Method not implemented.");
+  }
+  getContacts(): Promise<ContactResult[]> {
+    throw new Error("Method not implemented.");
+  }
+  updateContact(id: string, data: Partial<Contact>): Promise<ContactResult> {
+    throw new Error("Method not implemented.");
+  }
+  deleteContact(id: string): Promise<ContactResult> {
+    throw new Error("Method not implemented.");
+  }
+
+  
+}
 describe('CreateContactUseCase', () => {
 
   let createContact:CreateContactUseCase
   let mockContactRepository:ContactRepository
 
   
-  class MockContactRepository implements ContactRepository{
-    createContact(contact: Contact): Promise<ContactResult> {
-      throw new Error("Method not implemented.");
-    }
-    getContact(id: string): Promise<ContactResult> {
-      throw new Error("Method not implemented.");
-    }
-    getContacts(): Promise<ContactResult[]> {
-      throw new Error("Method not implemented.");
-    }
-    updateContact(id: string, data: Partial<Contact>): Promise<ContactResult> {
-      throw new Error("Method not implemented.");
-    }
-    deleteContact(id: string): Promise<ContactResult> {
-      throw new Error("Method not implemented.");
-    }
-
-    
-  }
 
   beforeEach(()=>{
-    
+    jest.clearAllMocks()
      mockContactRepository=new MockContactRepository()
      
      createContact= new CreateContact( mockContactRepository)
   })
 
-  afterEach(()=>{
-    
-    jest.clearAllMocks()
 
-  })
  
   //success
   describe('Contact ', () => {
