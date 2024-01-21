@@ -1,8 +1,11 @@
 import { Contact } from "../../../../domain/entities/Contact";
 import { ContactResult } from "../../../../domain/entities/ContactResult";
 import { ContactDataSource } from "../../../interfaces/data-sources/contact/contact-data-source";
+import { NoSqlDbWrapper } from "../../../interfaces/db-wrappers/nosql-db-wrapper";
 
 export class MongodbContactDataSource implements ContactDataSource{
+
+  constructor(private db:NoSqlDbWrapper){}
   create(contact: Contact): Promise<ContactResult> {
     throw new Error("Method not implemented.");
   }
