@@ -29,6 +29,7 @@ describe('Contact Repository', () => {
 
 
   beforeEach(()=>{
+    
     jest.clearAllMocks()
     mockContactDataSource=new MockContactDataSource()
     contactRepository=new ContactRepositoryImpl(mockContactDataSource)
