@@ -10,7 +10,9 @@ export default function ContactsRouter(createContactUseCase:CreateContactUseCase
        
      try{
 
-     }catch(err:any){
+        const contact = 
+
+     }catch(err){
 
 
      }
