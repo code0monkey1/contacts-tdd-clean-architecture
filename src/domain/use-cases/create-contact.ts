@@ -6,15 +6,8 @@ import { CreateContactUseCase } from "../interfaces/use-cases/contact/crate-cont
 export class CreateContact implements CreateContactUseCase{
 
   constructor(private contactRepository:ContactRepository){}
-  async execute(contact: Contact): Promise<Boolean|Error>{
-    
-    try{
-
-      return await this.contactRepository.createContact(contact)
-    }
-    catch(err){
-       return  new Error("")
-    }
+  async execute(contact: Contact): Promise<Boolean>{
+     return this.contactRepository.createContact(contact)
   }
   
 }

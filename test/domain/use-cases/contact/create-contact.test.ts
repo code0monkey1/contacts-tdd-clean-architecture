@@ -49,7 +49,7 @@ describe('CreateContactUseCase', () => {
         email:"email@gmail.com"
       }
 
-   it(` is successful `,async()=>{
+   it(`is successful `,async()=>{
 
    
       jest
@@ -72,14 +72,14 @@ describe('CreateContactUseCase', () => {
          
       jest
       .spyOn(mockContactRepository,'createContact')
-      .mockImplementation(()=>Promise.reject("error"))
+      .mockImplementation(()=>Promise.resolve(false))
 
     
        const res = await createContact.execute(contact)
 
        expect(mockContactRepository.createContact).toHaveBeenCalledWith(contact);
 
-       expect(res).toBeInstanceOf(Error);
+       expect(res).toBe(false)
       
 
     })

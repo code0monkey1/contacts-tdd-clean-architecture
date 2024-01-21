@@ -8,6 +8,5 @@ export interface ContactRepository{
      getContact(id:string):Promise<ContactResponseModel>
      updateContact(id:string,data:ContactUpdateModel):Promise<boolean>
      deleteContact(id:string):Promise<boolean>
-
    
 }
