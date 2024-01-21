@@ -1,6 +1,6 @@
 import { ContactDataSource } from "../../../data/interfaces/data-sources/contact/contact-data-source";
 import { Contact } from "../../entities/Contact";
-import { ContactResult } from "../../entities/ContactResponse";
+import { ContactResult } from "../../entities/ContactResult";
 import { ContactRepository } from "../../interfaces/repositories/contacts/contact-repository";
 import { ContactResponseModel } from "../../models";
 

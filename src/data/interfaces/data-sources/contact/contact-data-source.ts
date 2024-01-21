@@ -1,5 +1,5 @@
 import { Contact } from "../../../../domain/entities/Contact";
-import { ContactResult } from "../../../../domain/entities/ContactResponse";
+import { ContactResult } from "../../../../domain/entities/ContactResult";
 import { ContactUpdateModel } from '../../../../domain/models/index';
 
 export interface ContactDataSource {

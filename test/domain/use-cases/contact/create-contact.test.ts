@@ -1,5 +1,5 @@
 import { Contact } from "../../../../src/domain/entities/Contact";
-import { ContactResult } from "../../../../src/domain/entities/ContactResponse";
+import { ContactResult } from "../../../../src/domain/entities/ContactResult";
 import { ContactRepository } from '../../../../src/domain/interfaces/repositories/contacts/contact-repository';
 import { CreateContactUseCase } from "../../../../src/domain/interfaces/use-cases/contact/crate-contact-use-case";
 import { CreateContact } from '../../../../src/domain/use-cases/create-contact';
