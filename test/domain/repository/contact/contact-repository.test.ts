@@ -49,12 +49,16 @@ describe('Contact Repository', () => {
    
 
     it('gets the contacts array',async()=>{
+
+      const response:ContactResult={
+        data:[contact]
+      }
        
-      jest.spyOn(mockContactDataSource,'getAll').mockImplementation(()=>Promise.resolve({data:[contact]}))
+      jest.spyOn(mockContactDataSource,'getAll').mockImplementation(()=>Promise.resolve(response))
       
       const res = await contactRepository.getContacts()
 
-      expect(res).toBe({data:[contact]})
+      expect(res).toBe(response)
           
     })
     
