@@ -58,6 +58,8 @@ describe('Contact Repository', () => {
       
       const res = await contactRepository.createContact(contact)
       
+      expect(mockContactDataSource.create).toHaveBeenCalledWith(contact)
+
       expect(res).toBe(response)
           
     })
