@@ -33,14 +33,13 @@ describe('CreateContactUseCase', () => {
   //success
   describe('Contact creation', () => {
 
-    it.each([{
-      contacts:[{
+    const contact={
         firstName:'a',
         surName:'b',
         email:"email@gmail.com"
-      }]
-    }
-  ])(` contact is successful `,async({contacts})=>{
+      }
+
+   it(` is successful `,async()=>{
 
    
       jest
@@ -48,13 +47,19 @@ describe('CreateContactUseCase', () => {
       .mockImplementation(()=>Promise.resolve(true))
 
 
-       const res = await createContact.execute(contacts[0])
+       const res = await createContact.execute(contact)
 
        expect(mockContactRepository.createContact)
-       .toHaveBeenCalledWith(contacts[0])
+       .toHaveBeenCalledWith(contact)
 
        expect(res)
        .toBe(true)
+
+    })
+
+    it('is a failure',async()=>{
+
+      
 
     })
 
