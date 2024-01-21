@@ -4,10 +4,10 @@ import { ContactUpdateModel } from '../../../domain/models/index';
 
 export interface ContactDataSource {
      
-      create(contact:Contact):Promise<boolean>
+      create(contact:Contact):boolean
       getOne(id:string):Promise<ContactResponseModel>
       getAll():Promise<ContactResponseModel[]>
-      deleteOne(id:string):Promise<boolean>
-      updateOne(id:string,data:ContactUpdateModel):Promise<boolean>
+      deleteOne(id:string):boolean
+      updateOne(id:string,data:ContactUpdateModel):boolean
 
 }
