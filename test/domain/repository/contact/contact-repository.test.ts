@@ -1,6 +1,7 @@
 import { ContactDataSource } from "../../../../src/data/interfaces/data-sources/contact/contact-data-source";
 import { Contact } from "../../../../src/domain/entities/Contact";
 import { ContactResult } from "../../../../src/domain/entities/ContactResult";
+import { ContactRepository } from '../../../../src/domain/interfaces/repositories/contacts/contact-repository';
 import { ContactRepositoryImpl } from '../../../../src/domain/repositories/contact/contact-repository-impl';
 
 class MockContactDataSource implements ContactDataSource{
@@ -19,19 +20,20 @@ class MockContactDataSource implements ContactDataSource{
   updateOne(id: string, data: Partial<Contact>): Promise<ContactResult> {
     throw new Error("Method not implemented.");
   }
+  
 }
 
 
 describe('Contact Repository', () => {
   
-  let contactRepository;
-  let mockContactDataSource;
+  let contactRepository:ContactRepository;
+  let mockContactDataSource:ContactDataSource;
 
 
   beforeEach(()=>{
     
     jest.clearAllMocks()
-    mockContactDataSource=new MockContactDataSource()
+    mockContactDataSource= new MockContactDataSource()
     contactRepository=new ContactRepositoryImpl(mockContactDataSource)
 
   })
@@ -47,8 +49,12 @@ describe('Contact Repository', () => {
    
 
     it('gets the contacts array',async()=>{
+       
+      jest.spyOn(mockContactDataSource,'getAll').mockImplementation(()=>Promise.resolve({data:[contact]}))
       
-      
+      const res = await contactRepository.getContacts()
+
+      expect(res).toBe({data:[contact]})
           
     })
     
