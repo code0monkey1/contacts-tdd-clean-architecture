@@ -1,13 +1,13 @@
 import { Contact } from "../../../../domain/entities/Contact";
-import { ContactResponseModel } from "../../../../domain/models";
+import { ContactResult } from "../../../../domain/entities/ContactResponse";
 import { ContactUpdateModel } from '../../../../domain/models/index';
 
 export interface ContactDataSource {
      
-      create(contact:Contact):boolean
-      getOne(id:string):Promise<ContactResponseModel>
-      getAll():Promise<ContactResponseModel[]>
-      deleteOne(id:string):boolean
-      updateOne(id:string,data:ContactUpdateModel):boolean
+      create(contact:Contact):Promise<ContactResult>
+      getOne(id:string):Promise<ContactResult>
+      getAll():Promise<ContactResult>
+      deleteOne(id:string):Promise<ContactResult>
+      updateOne(id:string,data:ContactUpdateModel):Promise<ContactResult>
 
 }

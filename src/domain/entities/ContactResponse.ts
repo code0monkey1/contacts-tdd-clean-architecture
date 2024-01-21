@@ -1,6 +1,6 @@
 import { Contact } from "./Contact";
 
 export interface ContactResult {
-  data?: Contact;
+  data?: Contact[];
   error?: string;
 }
