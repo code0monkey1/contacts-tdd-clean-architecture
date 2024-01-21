@@ -63,6 +63,22 @@ describe('Contact Repository', () => {
       expect(res).toBe(response)
           
     })
+
+    it('does not create a contact and returns an error',async ()=>{
+
+      const response:ContactResult={
+        error:"contact not crated"
+      }
+       
+      jest.spyOn(mockContactDataSource,'create').mockImplementation(()=>Promise.resolve(response))
+      
+      const res = await contactRepository.createContact(contact)
+      
+      expect(mockContactDataSource.create).toHaveBeenCalledWith(contact)
+
+      expect(res).toBe(response)
+
+    })
     
   })
   
