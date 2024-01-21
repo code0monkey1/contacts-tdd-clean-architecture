@@ -44,10 +44,11 @@ describe('Contact Repository', () => {
       firstName: "a",
       surName: "b"
     }
+   
 
-
-    it('gets the contacts array',()=>{
-
+    it('gets the contacts array',async()=>{
+      
+      
           
     })
     
