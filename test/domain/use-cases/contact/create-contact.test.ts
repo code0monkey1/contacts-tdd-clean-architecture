@@ -1,4 +1,5 @@
 import { Contact } from "../../../../src/domain/entities/Contact";
+import { ContactResult } from "../../../../src/domain/entities/ContactResponse";
 import { ContactRepository } from '../../../../src/domain/interfaces/repositories/contacts/contact-repository';
 import { CreateContactUseCase } from "../../../../src/domain/interfaces/use-cases/contact/crate-contact-use-case";
 import { ContactResponseModel } from "../../../../src/domain/models";
@@ -12,21 +13,22 @@ describe('CreateContactUseCase', () => {
 
   
   class MockContactRepository implements ContactRepository{
-    getContacts(): Promise<ContactRepository[]> {
+    createContact(contact: Contact): Promise<ContactResult> {
       throw new Error("Method not implemented.");
     }
-    getContact(id: string): Promise<ContactResponseModel> {
+    getContact(id: string): Promise<ContactResult> {
       throw new Error("Method not implemented.");
     }
-    updateContact(id: string, data: Partial<Contact>): Promise<boolean> {
+    getContacts(): Promise<ContactResult[]> {
       throw new Error("Method not implemented.");
     }
-    deleteContact(id: string): Promise<boolean> {
+    updateContact(id: string, data: Partial<Contact>): Promise<ContactResult> {
       throw new Error("Method not implemented.");
     }
-    createContact(contact: Contact): Promise<boolean> {
+    deleteContact(id: string): Promise<ContactResult> {
       throw new Error("Method not implemented.");
     }
+
     
   }
 
@@ -57,7 +59,7 @@ describe('CreateContactUseCase', () => {
    
       jest
       .spyOn(mockContactRepository,'createContact')
-      .mockImplementation(()=>Promise.resolve(true))
+      .mockImplementation(()=>Promise.resolve({data:contact}))
 
 
        const res = await createContact.execute(contact)
@@ -65,8 +67,8 @@ describe('CreateContactUseCase', () => {
        expect(mockContactRepository.createContact)
        .toHaveBeenCalledWith(contact)
 
-       expect(res)
-       .toBe(true)
+       expect(res.data)
+       .toBe(contact)
 
     })
     

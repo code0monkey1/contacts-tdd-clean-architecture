@@ -1,6 +1,6 @@
-import { Contact } from "../../../domain/entities/Contact";
-import { ContactResponseModel } from "../../../domain/models";
-import { ContactUpdateModel } from '../../../domain/models/index';
+import { Contact } from "../../../../domain/entities/Contact";
+import { ContactResponseModel } from "../../../../domain/models";
+import { ContactUpdateModel } from '../../../../domain/models/index';
 
 export interface ContactDataSource {
      
