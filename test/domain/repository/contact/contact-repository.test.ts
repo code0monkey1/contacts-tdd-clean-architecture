@@ -37,16 +37,22 @@ describe('Contact Repository', () => {
   })
 
 
-  describe('The repository', () => {
-    
-    it('is true',()=>{
+  describe('getAllContacts', () => {
 
-          expect(true).toBe(true)
+    const contact:Contact={
+      email: "mail@email.com",
+      firstName: "a",
+      surName: "b"
+    }
 
+
+    it('gets the contacts array',()=>{
+
+          
     })
-
     
   })
+  
   
   
 })
