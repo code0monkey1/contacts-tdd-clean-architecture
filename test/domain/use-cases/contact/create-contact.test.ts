@@ -12,6 +12,9 @@ describe('CreateContactUseCase', () => {
 
   
   class MockContactRepository implements ContactRepository{
+    getContacts(): Promise<ContactRepository[]> {
+      throw new Error("Method not implemented.");
+    }
     getContact(id: string): Promise<ContactResponseModel> {
       throw new Error("Method not implemented.");
     }
@@ -66,20 +69,21 @@ describe('CreateContactUseCase', () => {
        .toBe(true)
 
     })
-
+    
+    //failure
     it('is a failure',async()=>{
 
          
       jest
       .spyOn(mockContactRepository,'createContact')
-      .mockImplementation(()=>Promise.reject(false))
+      .mockImplementation(()=>Promise.resolve(false))
 
     
        const res = await createContact.execute(contact)
 
        expect(mockContactRepository.createContact).toHaveBeenCalledWith(contact);
 
-       await expect(res).rejects.toBe(false);
+       await expect(res).toBe(false);
       
 
     })
@@ -88,12 +92,4 @@ describe('CreateContactUseCase', () => {
   })
 
 
-
-
-  //failure
-  // describe('',()=>{
-
-
-  // })
-  
 })
