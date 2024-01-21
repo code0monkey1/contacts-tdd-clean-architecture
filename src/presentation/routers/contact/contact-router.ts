@@ -12,9 +12,11 @@ export default function ContactsRouter(createContactUseCase:CreateContactUseCase
 
         const contact = await createContactUseCase.execute(req.body)
 
+        
+
      }catch(err){
 
-
+      
      }
     
   })
