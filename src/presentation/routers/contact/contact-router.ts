@@ -4,5 +4,11 @@ import { CreateContactUseCase } from "../../../domain/interfaces/use-cases/conta
 export default function ContactsRouter(createContactUseCase:CreateContactUseCase){
    
   const router = express.Router()
+
+
+  router.get('/',()=>{
+
+    
+  })
   
 }
