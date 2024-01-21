@@ -2,7 +2,6 @@ import { Contact } from "../../../../src/domain/entities/Contact";
 import { ContactResult } from "../../../../src/domain/entities/ContactResponse";
 import { ContactRepository } from '../../../../src/domain/interfaces/repositories/contacts/contact-repository';
 import { CreateContactUseCase } from "../../../../src/domain/interfaces/use-cases/contact/crate-contact-use-case";
-import { ContactResponseModel } from "../../../../src/domain/models";
 import { CreateContact } from '../../../../src/domain/use-cases/create-contact';
 
 
@@ -78,14 +77,14 @@ describe('CreateContactUseCase', () => {
          
       jest
       .spyOn(mockContactRepository,'createContact')
-      .mockImplementation(()=>Promise.resolve(false))
+      .mockImplementation(()=>Promise.resolve({error:"The contact was not created"}))
 
     
        const res = await createContact.execute(contact)
 
        expect(mockContactRepository.createContact).toHaveBeenCalledWith(contact);
 
-       await expect(res).toBe(false);
+       await expect(res.error).toBe("The contact was not created");
       
 
     })
