@@ -35,13 +35,20 @@ describe('MongodbContactDataSource', () => {
 
       describe('insertOne', () => {
 
+
+
           const contact:Contact={
           firstName:'a',
           surName:'b',
           email:"email@gmail.com"
         }
 
-        jest.spyOn(mockNoSqlDb,'insertOne').mockImplementation(()=>Promise.resolve(contact))
+
+        it('creates a new contact',()=>{
+
+          jest.spyOn(mockNoSqlDb,'insertOne').mockImplementation(()=>Promise.resolve(contact))
+
+        })
         
       })
       
