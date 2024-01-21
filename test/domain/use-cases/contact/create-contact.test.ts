@@ -4,7 +4,6 @@ import { ContactRepository } from '../../../../src/domain/interfaces/repositorie
 import { CreateContactUseCase } from "../../../../src/domain/interfaces/use-cases/contact/crate-contact-use-case";
 import { CreateContact } from '../../../../src/domain/use-cases/create-contact';
 
-
 describe('CreateContactUseCase', () => {
 
   let createContact:CreateContactUseCase
@@ -45,7 +44,7 @@ describe('CreateContactUseCase', () => {
   })
  
   //success
-  describe('Contact creation', () => {
+  describe('Contact ', () => {
 
     const contact={
         firstName:'a',
@@ -53,7 +52,7 @@ describe('CreateContactUseCase', () => {
         email:"email@gmail.com"
       }
 
-   it(`is successful `,async()=>{
+   it(`is created `,async()=>{
 
    
       jest
@@ -71,7 +70,7 @@ describe('CreateContactUseCase', () => {
     })
     
     //failure
-    it('is a failure',async()=>{
+    it('was a not created',async()=>{
 
          
       jest
@@ -87,7 +86,6 @@ describe('CreateContactUseCase', () => {
       
 
     })
-
 
   })
 
