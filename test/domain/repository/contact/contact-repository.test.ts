@@ -56,8 +56,8 @@ describe('Contact Repository', () => {
        
       jest.spyOn(mockContactDataSource,'create').mockImplementation(()=>Promise.resolve(response))
       
-      const res = await contactRepository.getContacts()
-
+      const res = await contactRepository.createContact(contact)
+      
       expect(res).toBe(response)
           
     })
