@@ -69,6 +69,19 @@ describe('CreateContactUseCase', () => {
 
     it('is a failure',async()=>{
 
+         
+      jest
+      .spyOn(mockContactRepository,'createContact')
+      .mockImplementation(()=>Promise.reject(false))
+
+
+       const res = await createContact.execute(contact)
+
+       expect(mockContactRepository.createContact)
+       .toHaveBeenCalledWith(contact)
+
+       expect(res)
+       .toBe(false)
       
 
     })
