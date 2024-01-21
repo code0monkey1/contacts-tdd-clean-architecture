@@ -7,7 +7,7 @@ export class ContactRepositoryImpl implements ContactRepository{
 
   constructor(private contactsDataSource:ContactDataSource){}
   createContact(contact: Contact): Promise<ContactResult> {
-    throw new Error("Method not implemented.");
+    return this.contactsDataSource.create(contact)
   }
   getContact(id: string): Promise<ContactResult> {
     throw new Error("Method not implemented.");
