@@ -5,8 +5,9 @@
   "main": "main.ts",
   "scripts": {
     "test": "jest --watchAll --collectCoverage --verbose",
-    "dev":"nodemon main.ts",
-    "start": "node lib/src/main.ts"
+    "dev":"NODE_ENV=dev nodemon src/main.ts",
+    "start": "tsc && node lib/main.js"
+
   },
   "keywords": [],
   "author": "",
