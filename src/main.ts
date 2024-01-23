@@ -46,7 +46,9 @@ async function getMongoDs() :Promise<ContactDataSource>{
 
   const dataSource =await getMongoDs()
 
-  const contactsRouter=ContactRouter( new CreateContact( new ContactRepositoryImpl(dataSource)))
+  
+
+  server.use('/',ContactRouter( new CreateContact( new ContactRepositoryImpl(dataSource)))
 
   server.listen(3000,()=>{
   

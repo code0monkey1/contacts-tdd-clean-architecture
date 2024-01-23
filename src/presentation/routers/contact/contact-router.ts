@@ -28,5 +28,7 @@ export default function ContactRouter(createContactUseCase:CreateContactUseCase)
      }
     
   })
+
+  return router
   
 }
