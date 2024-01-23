@@ -1,8 +1,9 @@
 import * as dotenv from 'dotenv';
 import mongoose, { ConnectOptions } from 'mongoose';
 import utils from '../utils';
-
 dotenv.config();
+
+
 export default class Database {
   private static _database: Database;
   private constructor() {

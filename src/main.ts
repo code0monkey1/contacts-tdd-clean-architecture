@@ -9,7 +9,6 @@ import server from "./server";
 
 import { ContactDataSource } from "./data/interfaces/data-sources/contact/contact-data-source";
 import ContactModel from "./data/schemas/contact/contact-model";
-
 import utils from './utils';
 import Database from './utils/db';
 
@@ -57,7 +56,7 @@ async function getMongoDs() :Promise<ContactDataSource>{
 
   server.listen(utils.PORT,()=>{
   
-      console.log("Server Listening to port 3000")
+      console.log(`Server Listening to port ${utils.PORT}`)
   })
 
 })();
