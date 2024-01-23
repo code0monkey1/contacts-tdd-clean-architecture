@@ -10,6 +10,7 @@ export default class Database {
     const DB_URL = utils.MONGO_DB_URI;
 
     if (DB_URL) {
+      console.log("starting to connect to db")
       mongoose
         .connect(DB_URL, {
           useNewUrlParser: true,
