@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest --watchAll --collectCoverage --verbose",
     "dev":"NODE_ENV=dev nodemon src/main.ts",
-    "start": "tsc && node lib/main.js"
+    "start": "tsc && node lib/main.js",
+    "tsc":"tsc"
 
   },
   "keywords": [],
