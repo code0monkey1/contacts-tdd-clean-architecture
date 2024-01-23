@@ -27,6 +27,7 @@ async function getMongoDs() :Promise<ContactDataSource>{
         return contact;
       },
       insertOne: async function (data: object): Promise<any> {
+        console.log("Reached MongodbContactDataSource Wrapper")
         const contact = await ContactModel.create(data);
 
         return contact;
