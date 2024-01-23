@@ -6,8 +6,9 @@ import { NoSqlDbWrapper } from "../../../interfaces/db-wrappers/nosql-db-wrapper
 export class MongodbContactDataSource implements ContactDataSource{
 
   constructor(private db:NoSqlDbWrapper){}
-  create(contact: Contact): Promise<ContactResult> {
-    throw new Error("Method not implemented.");
+  async create(contact: Contact): Promise<ContactResult> {
+    const contactResult = await this.db.insertOne(contact)
+    return contactResult
   }
   getOne(id: string): Promise<ContactResult> {
     throw new Error("Method not implemented.");
