@@ -50,7 +50,7 @@ describe('MongodbContactDataSource', () => {
           jest.spyOn(mockNoSqlDb,'insertOne').mockImplementation(()=>Promise.resolve(contact))
 
             
-         const response= await mockNoSqlDb.insertOne(contact)
+         const response= await mongodbContactDbSource.create(contact)
 
          expect(mockNoSqlDb.insertOne).toHaveBeenCalledWith(contact)
 
@@ -64,7 +64,7 @@ describe('MongodbContactDataSource', () => {
           jest.spyOn(mockNoSqlDb,'insertOne').mockImplementation(()=>Promise.resolve(contact))
 
             
-         const response= await mockNoSqlDb.insertOne(contact)
+         const response= await mongodbContactDbSource.create(contact)
 
          expect(mockNoSqlDb.insertOne).toHaveBeenCalledWith(contact)
 
