@@ -22,8 +22,10 @@ export default class Database {
   }
   static connect() {
     if (this._database) {
+      console.log("returning running database")
       return this._database;
     }
+    console.log("creating new database and returning it ")
     this._database = new Database();
     return (this._database = new Database());
   }
