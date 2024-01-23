@@ -27,8 +27,6 @@ export default function ContactRouter(createContactUseCase:CreateContactUseCase)
         console.log("Contact Created :no_entry_sign:")
         res.status(500).json({error:`error fetching data : ${message}`})
      
-
-      
      }
     
   })
