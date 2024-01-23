@@ -14,7 +14,7 @@ import Database from './utils/db';
 
 async function getMongoDs() :Promise<ContactDataSource>{
 
-   await Database.connect()
+     await Database.connect()
 
     const contactDb:NoSqlDbWrapper={
       
@@ -48,7 +48,7 @@ async function getMongoDs() :Promise<ContactDataSource>{
 
 (async ()=>{
 
-  const dataSource =await getMongoDs()
+  const dataSource = await getMongoDs()
 
   const contactsRouter= await ContactRouter( new CreateContact( new ContactRepositoryImpl(dataSource)))
 
