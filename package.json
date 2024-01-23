@@ -2,9 +2,11 @@
   "name": "contacts-tdd-clean-architecture",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "main.ts",
   "scripts": {
-    "test": "jest --watchAll --collectCoverage --verbose"
+    "test": "jest --watchAll --collectCoverage --verbose",
+    "dev":"nodemon main.ts",
+    "start": "node lib/src/main.ts"
   },
   "keywords": [],
   "author": "",
