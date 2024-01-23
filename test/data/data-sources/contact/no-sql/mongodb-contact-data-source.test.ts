@@ -7,7 +7,7 @@ class MockNoSqlDatabase implements NoSqlDbWrapper{
   find(id: string): Promise<any[]> {
     throw new Error('Method not implemented.');
   }
-  insertOne(data: any): Promise<any> {
+  insertOne(data: any): Promise<any|null> {
     throw new Error('Method not implemented.');
   }
   deleteOne(id: string): Promise<any> {
