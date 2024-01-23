@@ -55,6 +55,19 @@ describe('MongodbContactDataSource', () => {
 
 
         })
+
+        it('does not create new contact',async()=>{
+          
+          jest.spyOn(mockNoSqlDb,'insertOne').mockImplementation(()=>Promise.resolve(contact))
+
+            
+         const response= await mockNoSqlDb.insertOne(contact)
+
+         expect(mockNoSqlDb.insertOne).toHaveBeenCalledWith(contact)
+
+         expect(response).toBe(contact)
+
+        })
         
       })
       
