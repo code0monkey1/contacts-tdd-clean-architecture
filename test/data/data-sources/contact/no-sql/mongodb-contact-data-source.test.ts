@@ -4,10 +4,13 @@ import { NoSqlDbWrapper } from '../../../../../src/data/interfaces/db-wrappers/n
 import { Contact } from '../../../../../src/domain/entities/Contact';
 
 class MockNoSqlDatabase implements NoSqlDbWrapper{
-  find(id: string): Promise<any[]> {
+  find(query: object): Promise<any[]> {
     throw new Error('Method not implemented.');
   }
-  insertOne(data: any): Promise<any|null> {
+  findOne(id: string): Promise<any> {
+    throw new Error('Method not implemented.');
+  }
+  insertOne(data: object): Promise<any> {
     throw new Error('Method not implemented.');
   }
   deleteOne(id: string): Promise<any> {
