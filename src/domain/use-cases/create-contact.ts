@@ -8,7 +8,10 @@ export class CreateContact implements CreateContactUseCase{
 
   constructor(private contactRepository:ContactRepository){}
   async execute(contact: Contact): Promise<ContactResult>{
-     return this.contactRepository.createContact(contact)
+
+     const createdContact=await this.contactRepository.createContact(contact)
+
+     return createdContact
   }
   
 }
