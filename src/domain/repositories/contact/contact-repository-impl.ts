@@ -6,20 +6,21 @@ import { ContactRepository } from "../../interfaces/repositories/contacts/contac
 export class ContactRepositoryImpl implements ContactRepository{
 
   constructor(private contactsDataSource:ContactDataSource){}
-  createContact(contact: Contact): Promise<ContactResult> {
-    console.log("create contact reached")
-    return this.contactsDataSource.create(contact)
+  async createContact(contact: Contact): Promise<ContactResult> {
+   console.log("create contact reached")
+   const data=await this.contactsDataSource.create(contact)
+   return data
   }
-  getContact(id: string): Promise<ContactResult> {
+  async getContact(id: string): Promise<ContactResult> {
     throw new Error("Method not implemented.");
   }
-  getContacts(): Promise<ContactResult[]> {
+  async getContacts(): Promise<ContactResult[]> {
     throw new Error("Method not implemented.");
   }
-  updateContact(id: string, data: Partial<Contact>): Promise<ContactResult> {
+  async updateContact(id: string, data: Partial<Contact>): Promise<ContactResult> {
     throw new Error("Method not implemented.");
   }
-  deleteContact(id: string): Promise<ContactResult> {
+  async deleteContact(id: string): Promise<ContactResult> {
     throw new Error("Method not implemented.");
   }
 
