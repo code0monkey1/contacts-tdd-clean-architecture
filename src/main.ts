@@ -27,6 +27,11 @@ async function getMongoDs(){
 }
 
 
+server.listen(3000,()=>{
+
+    console.log("Server Listening to port 3000")
+})
+
 
 
 
