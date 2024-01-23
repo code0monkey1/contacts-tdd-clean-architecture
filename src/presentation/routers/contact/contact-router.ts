@@ -13,6 +13,8 @@ export default function ContactRouter(createContactUseCase:CreateContactUseCase)
 
         const contactResult:ContactResult = await createContactUseCase.execute(req.body)
 
+        console.log("Contact Created :white_check_mark:")
+
         res.json(contactResult)
 
      }catch(err){
@@ -22,8 +24,10 @@ export default function ContactRouter(createContactUseCase:CreateContactUseCase)
         if (err instanceof Error){
             message+=err.message
         }
-
+        console.log("Contact Created :no_entry_sign:")
         res.status(500).json({error:`error fetching data : ${message}`})
+     
+
       
      }
     
