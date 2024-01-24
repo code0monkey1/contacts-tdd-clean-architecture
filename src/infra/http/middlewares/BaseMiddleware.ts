@@ -1,4 +1,4 @@
-import { ServerError } from '../errors/ServerError';
+
 import { serverError } from '../helpers/http';
 import { HttpRequest } from '../interfaces/HttpRequest';
 import { HttpResponse } from '../interfaces/HttpResponse';
