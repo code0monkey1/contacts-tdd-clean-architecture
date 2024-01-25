@@ -1,4 +1,5 @@
 export interface NoSqlDbWrapper{
+  
   find(query:object):Promise<any[]>
   findOne(id:string):Promise<any|null>
   insertOne(data:object):Promise<any|null>
