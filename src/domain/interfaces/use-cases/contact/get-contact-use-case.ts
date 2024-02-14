@@ -9,6 +9,6 @@ export interface GetContactUseCase extends UseCase<GetContactUseCase.request,Get
 export namespace GetContactUseCase{
 
   export type request=string
-  export type response=ContactResult|Error
+  export type response=ContactResult
 
 }

@@ -1,4 +1,5 @@
 import express, { Request, Response } from 'express';
+import { Contact } from '../../../domain/entities/Contact';
 import { ContactResult } from '../../../domain/entities/ContactResult';
 import { CreateContactUseCase } from "../../../domain/interfaces/use-cases/contact/crate-contact-use-case";
 import { GetContactUseCase } from '../../../domain/interfaces/use-cases/contact/get-contact-use-case';
@@ -43,12 +44,11 @@ export default function ContactRouter(createContactUseCase:CreateContactUseCase,
        if(!id)
          throw("id was not given : "+id)
        
+        const contact = await getContactUseCase.execute(id)
 
-        const contactResult:ContactResult = await createContactUseCase.execute({email:"",firstName:"",surName:""})
+        console.log(" ✅  Contact Found",JSON.stringify(contact))
 
-        console.log(" ✅ New Contact Created")
-
-        res.json(contactResult)
+        res.json(contact)
 
      }catch(err){
 
@@ -58,7 +58,7 @@ export default function ContactRouter(createContactUseCase:CreateContactUseCase,
             message+=err.message
         }
         
-        console.log(" ❌ Contact does not exist ")
+        console.log(" ❌ Contact not found ")
 
         res.status(500).json({error:`Error getting contact : ${message}`})
      
