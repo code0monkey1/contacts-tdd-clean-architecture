@@ -1,6 +1,12 @@
 import { Contact } from "../../../entities/Contact";
 import { ContactResult } from "../../../entities/ContactResult";
+import { UseCase } from "../../UseCase";
 
-export interface CreateContactUseCase{
-   execute(Contact:Contact):Promise<ContactResult>
+export interface CreateContactUseCase extends UseCase<CreateContactUseCase.request,CreateContactUseCase.response>{
+   execute(contact:CreateContactUseCase.request):Promise<CreateContactUseCase.response>
+}
+
+export namespace CreateContactUseCase{
+   export type request= Promise<Contact>
+   export type response = Promise<ContactResult>
 }
