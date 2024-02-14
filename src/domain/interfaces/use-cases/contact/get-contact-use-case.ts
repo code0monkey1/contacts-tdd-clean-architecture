@@ -1,7 +1,7 @@
 import { ContactResult } from "../../../entities/ContactResult";
 
 export interface GetContactUseCase{
-   execute(id:string):Promise<ContactResult>
+   execute(id:GetContactUseCase.request):Promise<GetContactUseCase.response>
 }
 
 export namespace GetContactUseCase{
