@@ -1,11 +1,15 @@
 import * as dotenv from 'dotenv';
 import mongoose, { ConnectOptions } from 'mongoose';
 import utils from '../utils';
+const { EventEmitter } = require('events');
 dotenv.config();
 
+// Create an event emitter instance
+const eventEmitter = new EventEmitter();
 
 export default class Database {
   private static _database: Database;
+
   private constructor() {
     const DB_URL = utils.MONGO_DB_URI;
 
@@ -25,10 +29,10 @@ export default class Database {
             // Perform a test query or check the connection status
             if (!mongoose.connection.readyState) {
               console.error('DB connection error');
-              // Set a flag or emit an event to indicate the DB connection issue
-              // For example: dbConnectionError = true;
+              eventEmitter.emit('dbConnectionError');
             }
           }, 5000);
+
         })
         .catch((error) =>{
           let errorMessage ;
@@ -54,3 +58,20 @@ export default class Database {
 }
 
 
+// Graceful shutdown
+// Graceful shutdown
+function shutdown() {
+  console.log('Shutting down server due to DB connection error');
+    process.exit(0);
+
+}
+
+// Catch the event and initiate shutdown
+// Catch the event and initiate shutdown
+eventEmitter.on('dbConnectionError', () => {
+  shutdown()
+});
+
+// Handle shutdown signals
+process.on('SIGINT', shutdown);
+process.on('SIGTERM', shutdown);
