@@ -16,7 +16,7 @@ export class MongodbContactDataSource implements ContactDataSource{
   getAll(): Promise<ContactResult> {
     throw new Error("Method not implemented.");
   }
-  deleteOne(id: string): Promise<ContactResult> {
+  deleteOne(id: string): Promise<void> {
     throw new Error("Method not implemented.");
   }
   updateOne(id: string, data: Partial<Contact>): Promise<ContactResult> {

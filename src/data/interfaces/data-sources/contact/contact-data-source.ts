@@ -7,7 +7,7 @@ export interface ContactDataSource {
       create(contact:Contact):Promise<ContactResult>
       getOne(id:string):Promise<ContactResult>
       getAll():Promise<ContactResult>
-      deleteOne(id:string):Promise<ContactResult>
+      deleteOne(id:string):Promise<void>
       updateOne(id:string,data:ContactUpdateModel):Promise<ContactResult>
 
 }

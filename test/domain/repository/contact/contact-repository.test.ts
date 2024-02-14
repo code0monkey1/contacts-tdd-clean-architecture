@@ -14,7 +14,7 @@ class MockContactDataSource implements ContactDataSource{
   getAll(): Promise<ContactResult> {
     throw new Error("Method not implemented.");
   }
-  deleteOne(id: string): Promise<ContactResult> {
+  deleteOne(id: string): Promise<void> {
     throw new Error("Method not implemented.");
   }
   updateOne(id: string, data: Partial<Contact>): Promise<ContactResult> {
@@ -40,6 +40,51 @@ describe('Contact Repository', () => {
 
 
   describe('createContact', () => {
+
+    const contact:Contact={
+      email: "mail@email.com",
+      firstName: "a",
+      surName: "b"
+    }
+   
+
+    it('creates new contact',async()=>{
+
+      const response:ContactResult={
+        data:[contact]
+      }
+       
+      jest.spyOn(mockContactDataSource,'create').mockImplementation(()=>Promise.resolve(response))
+      
+      const res = await contactRepository.createContact(contact)
+      
+      expect(mockContactDataSource.create).toHaveBeenCalledWith(contact)
+
+      expect(res).toBe(response)
+          
+    })
+
+    it('does not create a contact and returns an error',async ()=>{
+
+      const response:ContactResult={
+        error:"contact not crated"
+      }
+       
+      jest.spyOn(mockContactDataSource,'create').mockImplementation(()=>Promise.resolve(response))
+      
+      const res = await contactRepository.createContact(contact)
+      
+      expect(mockContactDataSource.create).toHaveBeenCalledWith(contact)
+
+      expect(res).toBe(response)
+
+    })
+    
+  })
+
+
+
+  describe('getContact', () => {
 
     const contact:Contact={
       email: "mail@email.com",
