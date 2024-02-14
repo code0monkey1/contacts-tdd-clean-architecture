@@ -2,13 +2,12 @@
 import { MongodbContactDataSource } from "./data/data-sources/contact/no-sql/mongodb-contact-data-source";
 import { NoSqlDbWrapper } from "./data/interfaces/db-wrappers/nosql-db-wrapper";
 
+import { ContactDataSource } from "./data/interfaces/data-sources/contact/contact-data-source";
+import ContactModel from "./data/schemas/contact/contact-model";
 import { ContactRepositoryImpl } from './domain/repositories/contact/contact-repository-impl';
 import { CreateContact } from "./domain/use-cases/create-contact";
 import ContactRouter from "./presentation/routers/contact/contact-router";
 import server from "./server";
-
-import { ContactDataSource } from "./data/interfaces/data-sources/contact/contact-data-source";
-import ContactModel from "./data/schemas/contact/contact-model";
 import utils from './utils';
 import Database from './utils/db';
 
