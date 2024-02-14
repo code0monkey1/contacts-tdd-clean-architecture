@@ -7,6 +7,9 @@ import { BaseMiddleware } from "../BaseMiddleware";
 
 
 export class AuthMiddleware extends BaseMiddleware{
+  constructor(){
+    super()
+  }
 
   execute(httpRequest: HttpRequest): Promise<HttpResponse> {
     throw new Error("Method not implemented.");
