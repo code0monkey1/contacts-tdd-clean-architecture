@@ -8,3 +8,8 @@ content-type: application/json
     "firstName": "some-firstname",
     "surName":"some-surname"
 }
+,
+
+
+GET  http://localhost:3000/contact/65cc6074f62d1ea70348fae9 HTTP/1.1
+content-type: application/json
