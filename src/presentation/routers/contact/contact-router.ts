@@ -35,11 +35,13 @@ export default function ContactRouter(createContactUseCase:CreateContactUseCase,
     
   })
 
-    router.get('/id',async(req:Request,res:Response)=>{
+    router.get('/:id',async(req:Request,res:Response)=>{
        
      try{
-
+       
        const {id} =req.params
+
+       console.log("The id is",id)
 
        if(!id)
          throw("id was not given : "+id)
