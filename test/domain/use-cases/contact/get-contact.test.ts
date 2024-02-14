@@ -58,8 +58,8 @@ describe('GetContactUseCase', () => {
 
        const res = await getContact.execute(contact.id!)
 
-       expect(mockContactRepository.createContact)
-       .toHaveBeenCalledWith(contact)
+       expect(mockContactRepository.getContact)
+       .toHaveBeenCalledWith(contact.id)
 
        expect(res.data)
        .toEqual([contact])
