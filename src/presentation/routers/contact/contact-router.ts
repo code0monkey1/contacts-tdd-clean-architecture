@@ -3,7 +3,8 @@ import { ContactResult } from '../../../domain/entities/ContactResult';
 import { CreateContactUseCase } from "../../../domain/interfaces/use-cases/contact/crate-contact-use-case";
 import { GetContactUseCase } from '../../../domain/interfaces/use-cases/contact/get-contact-use-case';
 
-export default function ContactRouter(createContactUseCase:CreateContactUseCase
+export default function ContactRouter(createContactUseCase:CreateContactUseCase,
+   getContactUseCase:GetContactUseCase
    ){
    
   const router = express.Router()

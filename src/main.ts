@@ -6,6 +6,7 @@ import { ContactDataSource } from "./data/interfaces/data-sources/contact/contac
 import ContactModel from "./data/schemas/contact/contact-model";
 import { ContactRepositoryImpl } from './domain/repositories/contact/contact-repository-impl';
 import { CreateContact } from "./domain/use-cases/create-contact";
+import { GetContact } from './domain/use-cases/get-contact';
 import ContactRouter from "./presentation/routers/contact/contact-router";
 import server from "./server";
 import utils from './utils';
@@ -50,7 +51,9 @@ async function getMongoDs() :Promise<ContactDataSource>{
 
   const dataSource = await getMongoDs()
 
-  const contactsRouter= await ContactRouter( new CreateContact( new ContactRepositoryImpl(dataSource)))
+  const contactsRouter= await ContactRouter( 
+    new CreateContact( new ContactRepositoryImpl(dataSource)),
+    new GetContact( new ContactRepositoryImpl(dataSource)))
 
   server.use('/contact',contactsRouter)
 
