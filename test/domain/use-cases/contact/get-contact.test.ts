@@ -18,7 +18,7 @@ class MockContactRepository implements ContactRepository{
   updateContact(id: string, data: Partial<Contact>): Promise<ContactResult> {
     throw new Error("Method not implemented.");
   }
-  deleteContact(id: string): Promise<ContactResult> {
+  deleteContact(id: string): Promise<void> {
     throw new Error("Method not implemented.");
   }
 

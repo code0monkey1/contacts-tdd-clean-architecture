@@ -10,6 +10,6 @@ export interface ContactRepository{
      getContact(id:string):Promise<ContactResult>
      getContacts():Promise<ContactResult[]>
      updateContact(id:string,data:ContactUpdateModel):Promise<ContactResult>
-     deleteContact(id:string):Promise<ContactResult>
+     deleteContact(id:string):Promise<void>
    
 }

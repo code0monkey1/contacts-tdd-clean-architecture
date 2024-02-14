@@ -20,7 +20,7 @@ export class ContactRepositoryImpl implements ContactRepository{
   async updateContact(id: string, data: Partial<Contact>): Promise<ContactResult> {
     throw new Error("Method not implemented.");
   }
-  async deleteContact(id: string): Promise<ContactResult> {
+  async deleteContact(id: string): Promise<void> {
     throw new Error("Method not implemented.");
   }
 
