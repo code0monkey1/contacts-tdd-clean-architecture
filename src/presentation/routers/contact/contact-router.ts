@@ -13,7 +13,7 @@ export default function ContactRouter(createContactUseCase:CreateContactUseCase)
 
         const contactResult:ContactResult = await createContactUseCase.execute(req.body)
 
-        console.log("Contact Created :white_check_mark:")
+        console.log(" ✅ New Contact Created")
 
         res.json(contactResult)
 
