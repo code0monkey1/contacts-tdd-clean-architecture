@@ -40,9 +40,9 @@ export default function ContactRouter(createContactUseCase:CreateContactUseCase,
 
        const {id} =req.params
 
-       if(!id){
+       if(!id)
          throw("id was not given : "+id)
-       }
+       
 
         const contactResult:ContactResult = await createContactUseCase.execute({email:"",firstName:"",surName:""})
 
@@ -58,9 +58,9 @@ export default function ContactRouter(createContactUseCase:CreateContactUseCase,
             message+=err.message
         }
         
-        console.log(" ❌ Contact Not Created ")
+        console.log(" ❌ Contact does not exist ")
 
-        res.status(500).json({error:`error fetching data : ${message}`})
+        res.status(500).json({error:`Error getting contact : ${message}`})
      
      }
     
