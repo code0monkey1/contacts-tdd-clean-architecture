@@ -1,8 +1,9 @@
-import { Validation } from "../interfaces/Validation";
 
-class EmailValidation implements Validation{
-  validate(input: any): Error | null {
-    throw new Error("Method not implemented.");
-  }
+import { EmailValidator } from "./interfaces/EmailValidator";
+
+export class EmailValidation implements EmailValidator{
+  isValid: (email: string) => boolean;
+  
+
 
 }
