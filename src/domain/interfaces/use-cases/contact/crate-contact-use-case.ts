@@ -7,6 +7,6 @@ export interface CreateContactUseCase extends UseCase<CreateContactUseCase.reque
 }
 
 export namespace CreateContactUseCase{
-   export type request= Promise<Contact>
-   export type response = Promise<ContactResult>
+   export type request= Contact
+   export type response = ContactResult
 }

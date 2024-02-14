@@ -1,5 +1,3 @@
-import { Contact } from "../entities/Contact";
-import { ContactResult } from "../entities/ContactResult";
 import { ContactRepository } from "../interfaces/repositories/contacts/contact-repository";
 import { CreateContactUseCase } from "../interfaces/use-cases/contact/crate-contact-use-case";
 
@@ -7,7 +5,7 @@ import { CreateContactUseCase } from "../interfaces/use-cases/contact/crate-cont
 export class CreateContact implements CreateContactUseCase{
 
   constructor(private contactRepository:ContactRepository){}
-  async execute(contact: Contact): Promise<ContactResult>{
+  async execute(contact: CreateContactUseCase.request):     Promise<CreateContactUseCase.response>{
 
      const createdContact=await this.contactRepository.createContact(contact)
 

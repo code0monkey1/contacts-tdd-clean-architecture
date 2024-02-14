@@ -30,11 +30,12 @@ describe('CreateContactUseCase', () => {
 
   
 
-  beforeEach(()=>{
+  beforeEach(async ()=>{
     jest.clearAllMocks()
-     mockContactRepository=new MockContactRepository()
+
+     mockContactRepository= new MockContactRepository()
      
-     createContact= new CreateContact( mockContactRepository)
+     createContact= await new CreateContact( mockContactRepository)
   })
 
  
