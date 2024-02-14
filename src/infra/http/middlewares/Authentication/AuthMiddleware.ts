@@ -11,7 +11,7 @@ export class AuthMiddleware extends BaseMiddleware{
     super()
   }
 
-  execute(httpRequest: HttpRequest): Promise<HttpResponse> {
+  execute(httpRequest: AuthMiddleware.request): Promise<AuthMiddleware.response> {
     throw new Error("Method not implemented.");
   }
   
