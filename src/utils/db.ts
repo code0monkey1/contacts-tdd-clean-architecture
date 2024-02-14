@@ -16,7 +16,20 @@ export default class Database {
           useNewUrlParser: true,
           useUnifiedTopology: true,
         } as ConnectOptions)
-        .then(() => console.log('✅ Connected with database'))
+        .then(() =>
+        {
+          console.log('✅ Connected to DB')
+
+          // Health check
+          setInterval(() => {
+            // Perform a test query or check the connection status
+            if (!mongoose.connection.readyState) {
+              console.error('DB connection error');
+              // Set a flag or emit an event to indicate the DB connection issue
+              // For example: dbConnectionError = true;
+            }
+          }, 5000);
+        })
         .catch((error) =>{
           let errorMessage ;
 
@@ -39,3 +52,5 @@ export default class Database {
     return (this._database = new Database());
   }
 }
+
+
