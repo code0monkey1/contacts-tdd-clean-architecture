@@ -66,23 +66,20 @@ describe('GetContactUseCase', () => {
 
     })
     
-    // //failure
-    // it('was a not created',async()=>{
+    //failure
+    it('was a not created',async()=>{
 
          
-    //   jest
-    //   .spyOn(mockContactRepository,'createContact')
-    //   .mockImplementation(()=>Promise.resolve({error:"The contact was not created"}))
-
+      jest
+      .spyOn(mockContactRepository,'getContact')
+      .mockImplementation(()=>Promise.resolve({error:"The contact was not created"}))
     
-    //    const res = await createContact.execute(contact)
+       const res = await getContact.execute(contact.id!)
 
-    //    expect(mockContactRepository.createContact).toHaveBeenCalledWith(contact);
-
-    //    await expect(res.error).toBe("The contact was not created");
+       await expect(res.error).toBe("The contact was not created");
       
 
-    // })
+    })
 
   })
 
