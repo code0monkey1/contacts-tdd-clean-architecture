@@ -17,7 +17,11 @@ export default class Database {
           useUnifiedTopology: true,
         } as ConnectOptions)
         .then(() => console.log('✅ Connected with database'))
-        .catch(() => console.error('❌ Not connected with database'));
+        .catch(() =>{
+         console.error('❌ Not connected with database')
+          process.exit(0);
+        }
+         );
     }
   }
   static connect() {
