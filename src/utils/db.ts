@@ -61,7 +61,7 @@ export default class Database {
 // Graceful shutdown
 // Graceful shutdown
 function shutdown() {
-  console.log('Shutting down server due to DB connection error');
+  console.log('❗️❗️Shutting down server due to DB connection error');
     process.exit(0);
 
 }
