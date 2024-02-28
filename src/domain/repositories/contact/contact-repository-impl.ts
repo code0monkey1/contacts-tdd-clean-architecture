@@ -3,12 +3,12 @@ import { Contact } from "../../entities/Contact";
 import { ContactResult } from "../../entities/ContactResult";
 import { ContactRepository } from "../../interfaces/repositories/contacts/contact-repository";
 
-export class ContactRepositoryImpl implements ContactRepository{
+export class ContactRepositoryImpl implements ContactRepository {
 
-  constructor(private contactsDataSource:ContactDataSource){}
+  constructor(private contactsDataSource: ContactDataSource) { }
   async createContact(contact: Contact): Promise<ContactResult> {
- 
-   return await this.contactsDataSource.create(contact)
+
+    return await this.contactsDataSource.create(contact)
 
   }
   async getContact(id: string): Promise<ContactResult> {
@@ -24,5 +24,5 @@ export class ContactRepositoryImpl implements ContactRepository{
     throw new Error("Method not implemented.");
   }
 
-   
+
 }

@@ -5,70 +5,70 @@ import { CreateContactUseCase } from "../../../domain/interfaces/use-cases/conta
 import { GetContactUseCase } from '../../../domain/interfaces/use-cases/contact/get-contact-use-case';
 
 export default function ContactRouter(
-   createContactUseCase:CreateContactUseCase,
-   getContactUseCase:GetContactUseCase
-   ){
-   
+  createContactUseCase: CreateContactUseCase,
+  getContactUseCase: GetContactUseCase
+) {
+
   const router = express.Router()
 
 
-  router.post('/',async(req:Request,res:Response)=>{
-       
-     try{
+  router.post('/', async (req: Request, res: Response) => {
 
-        const contactResult:ContactResult = await createContactUseCase.execute(req.body)
+    try {
 
-        console.log(" ✅ New Contact Created")
+      const contactResult: ContactResult = await createContactUseCase.execute(req.body)
 
-        res.json(contactResult)
+      console.log(" ✅ New Contact Created")
 
-     }catch(err){
+      res.json(contactResult)
 
-        let message=''
+    } catch (err) {
 
-        if (err instanceof Error){
-            message+=err.message
-        }
-        console.log("Contact Created :no_entry_sign:")
-        res.status(500).json({error:`error fetching data : ${message}`})
-     
-     }
-    
+      let message = ''
+
+      if (err instanceof Error) {
+        message += err.message
+      }
+      console.log("Contact Created :no_entry_sign:")
+      res.status(500).json({ error: `error fetching data : ${message}` })
+
+    }
+
   })
 
-    router.get('/:id',async(req:Request,res:Response)=>{
-       
-     try{
-       
-       const {id} =req.params
+  router.get('/:id', async (req: Request, res: Response) => {
 
-       console.log("The id is",id)
+    try {
 
-       if(!id)
-         throw("id was not given : "+id)
-       
-        const contact = await getContactUseCase.execute(id)
+      const { id } = req.params
 
-        console.log(" ✅  Contact Found",JSON.stringify(contact))
+      console.log("The id is", id)
 
-        res.json(contact)
+      if (!id)
+        throw ("id was not given : " + id)
 
-     }catch(err){
+      const contact = await getContactUseCase.execute(id)
 
-        let message=''
+      console.log(" ✅  Contact Found", JSON.stringify(contact))
 
-        if (err instanceof Error){
-            message+=err.message
-        }
-        
-        console.log(" ❌ Contact not found ")
+      res.json(contact)
 
-        res.status(500).json({error:`Error getting contact : ${message}`})
-     
-     }
-    
+    } catch (err) {
+
+      let message = ''
+
+      if (err instanceof Error) {
+        message += err.message
+      }
+
+      console.log(" ❌ Contact not found ")
+
+      res.status(500).json({ error: `Error getting contact : ${message}` })
+
+    }
+
   })
 
   return router
-  
+
 }
